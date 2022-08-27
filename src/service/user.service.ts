@@ -100,7 +100,7 @@ export class UserService {
       );
     return {
       result: result.data.result,
-      message: result.data.errorInfoList?.[0].message,
+      message: result.data.errorInfoList?.[0]?.message,
     };
   }
 

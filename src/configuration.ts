@@ -2,7 +2,7 @@ import { Configuration, App } from '@midwayjs/decorator';
 import * as koa from '@midwayjs/koa';
 import * as validate from '@midwayjs/validate';
 import * as info from '@midwayjs/info';
-import { join } from 'path';
+import path, { join } from 'path';
 // import { DefaultErrorFilter } from './filter/default.filter';
 // import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
@@ -14,7 +14,8 @@ import * as dotenv from 'dotenv';
 import * as lodash from 'lodash';
 
 // load .env file in process.cwd
-dotenv.config({ debug: true });
+dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 @Configuration({
   imports: [
