@@ -1,0 +1,77 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "account": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": ["account", "password"],
+        "x-apifox-orders": ["account", "password"]
+      },
+      "signFormData": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "signAddress": {
+            "type": "string"
+          },
+          "provinceZipCode": {
+            "type": "string"
+          },
+          "cityZipCode": {
+            "type": "string"
+          },
+          "countyZipCode": {
+            "type": "string"
+          },
+          "habitationDetailDesc": {
+            "type": "string"
+          },
+          "usualResidenceDetailDesc": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "position",
+          "signAddress",
+          "provinceZipCode",
+          "cityZipCode",
+          "countyZipCode",
+          "habitationDetailDesc",
+          "usualResidenceDetailDesc",
+          "phone"
+        ],
+        "x-apifox-orders": [
+          "address",
+          "position",
+          "signAddress",
+          "provinceZipCode",
+          "cityZipCode",
+          "countyZipCode",
+          "habitationDetailDesc",
+          "usualResidenceDetailDesc",
+          "phone"
+        ]
+      }
+    },
+    "x-apifox-orders": ["account", "signFormData"],
+    "required": ["account", "signFormData"]
+  }
+}
