@@ -1,8 +1,14 @@
-import { Provide, Inject, TaskLocal, Config } from '@midwayjs/decorator';
+import {
+  Provide,
+  Inject,
+  TaskLocal,
+  Config,
+  Logger,
+} from '@midwayjs/decorator';
 import { PatchSignParam } from '../types/api';
 import { UserService } from './user.service';
 import { IUserOptions, SignConfig } from '../types/interface';
-import { ILogger } from '@midwayjs/logger';
+import { IMidwayLogger } from '@midwayjs/logger';
 
 @Provide()
 export class ScheduleService {
@@ -70,7 +76,8 @@ export class ScheduleService {
   };
 
   @Inject()
-  logger: ILogger;
+  @Logger()
+  logger: IMidwayLogger;
 
   private loadUser() {
     const config = this.signConfig.shift();
@@ -82,7 +89,8 @@ export class ScheduleService {
   }
 
   @TaskLocal('0 6 * * *')
-  async test() {
+  async execute() {
+    this.logger.enableConsole();
     while (this.loadUser()) {
       this.userService.setUser(this.accountData);
       const loginStatus = await this.userService.doLogin();
@@ -90,17 +98,18 @@ export class ScheduleService {
         this.accountData.account.length - 4
       );
       if (loginStatus !== true) {
-        console.warn(
+        console.log(
           `[${currentUserSummary}]登录失败: ${loginStatus.data?.msg}`
         );
         continue;
       }
       const result = await this.userService.doSign(this.signData);
-      console.warn(
+      console.log(
         `[${currentUserSummary}]签到结果: ${
           !result ? '失败' : result.result ? '成功' : '失败'
         } 返回消息: ${!result || result.message}`
       );
     }
+    process.exit(0);
   }
 }

@@ -17,5 +17,15 @@ export default (): MidwayConfig => {
       port: 7001,
     },
     signConfig: getSignConfig(),
+    midwayLogger: {
+      default: {
+        enableConsole: true,
+        enableFile: false,
+      },
+      client: {
+        enableConsole: true,
+        enableFile: false,
+      },
+    },
   };
 };

@@ -44,7 +44,7 @@ export class ContainerLifeCycle implements ILifeCycle {
   async onServerReady(container: IMidwayContainer) {
     // LocalTask的启动后立马执行
     const result = await container.getAsync(QueueService);
-    const job = result.getLocalTask('ScheduleService', 'test'); // 参数1:类名 参数2: 装饰器TaskLocal的函数名
+    const job = result.getLocalTask('ScheduleService', 'execute'); // 参数1:类名 参数2: 装饰器TaskLocal的函数名
     job(); // 表示立即执行
   }
 }
