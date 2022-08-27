@@ -60,6 +60,13 @@
 ]
 ```
 
+## 验证配置是否正确
+
+请使用 [Json Schema Validator](https://www.jsonschemavalidator.net/)，左边填写[schema.json](./dcos/schema.json)中的内容，右边填写你的配置
+
+示例：
+![img](https://tva1.sinaimg.cn/large/008d89Swgy1h5lsymyxakj31hc0m1gvf.jpg)
+
 ## 注意
 海外ip好像无法签到，打开页面会显示 `502`
 
