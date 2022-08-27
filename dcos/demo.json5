@@ -1,18 +1,30 @@
 [
+  // 每一个对象就是一个签到账号
   {
     "account": {
+      // 账号
       "account": "demo",
+      // 密码，默认是Hnie@身份证后六位
       "password": "Hnie@demo"
     },
     "signFormData": {
+      // 签到所在地（地图api定位结果）
       "address": "湖南省郴州市北湖区五岭大道9号",
+      // 签到所在地经纬度
       "position": "113.014999,25.7706",
+      // 签到地址（精确的县级）
       "signAddress": "湖南省郴州市",
+      // 省会邮编
       "provinceZipCode": "430000",
+      // 市中心邮编
       "cityZipCode": "431000",
+      // 县中心邮编
       "countyZipCode": "431081",
+      // 现居地详细地址
       "habitationDetailDesc": "湖南省郴州资兴市鲤鱼江KFC",
+      // 常住地详细地址
       "usualResidenceDetailDesc": "湖南省郴州资兴市鲤鱼江KFC",
+      // 手机号
       "phone": "15971115555"
     }
   },
