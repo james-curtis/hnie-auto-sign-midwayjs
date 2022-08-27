@@ -5,7 +5,7 @@ name: Do Sign
 
 on:
   schedule:
-    - cron: '30 30 6 * *'
+    - cron: '30 6 * * *'
 
 jobs:
   build:
