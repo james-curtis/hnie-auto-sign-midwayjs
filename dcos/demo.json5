@@ -2,7 +2,7 @@
   // 每一个对象就是一个签到账号
   {
     "account": {
-      // 账号
+      // 账号，这里的账号密码是http://xggl.hnie.edu.cn/这个网站的
       "account": "demo",
       // 密码，默认是Hnie@身份证后六位
       "password": "Hnie@demo"
