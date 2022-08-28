@@ -1,10 +1,14 @@
 # 某高校疫情防控自动签到打卡
 
-## 使用
+[TOC]
+
+## 运行平台
 
 可以配合 [阿里云效](https://devops.aliyun.com/) 或者 [coding](https://coding.net/)，只要是跑在国内服务器都可以
 
-**使用步骤**
+## 使用步骤
+
+### 方式一
 
 1. 先注册阿里云账号
 2. 然后进入[云效得devops](https://devops.console.aliyun.com/organizations)
@@ -18,7 +22,7 @@
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mbdpyvlij31hc0swajs.jpg)
    - 按照下面示例进行填写，仓库地址是：`https://github.com/james-curtis/hnie-auto-sign.git`
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mbehv5e7j30lf0mytbr.jpg)
-4. 流水线设置
+4. 创建流水线
    - 点击左侧的 `流水线`
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mbfujlvyj309s0g0wfo.jpg)
    - 跳转页面之后，点击右上角的 `创建流水线`
@@ -27,54 +31,81 @@
    - 然后会自动弹出 `流水线源`，然后按照图示进行设置
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mbkf4l59j31hc0swwm2.jpg)
    - 然后选择 `阶段1` 中的 `空任务`
-   - 在右侧弹出面板中，将任务名修改为 `签到打卡`
-   - 点击右侧面板中下侧的 `添加步骤`，选择 `构建->Node.js构建`
-   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mbnyix7qj31hc0swjz1.jpg)
-   - 现在你的界面应该是这样的
-   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mboqhzt7j30dw0nhdho.jpg)
-   - `版本选择方式` 修改为 `输入指定版本`
-   - `请填写 Node 版本` 修改为 `16`
-   - `构建命令` 填写为如下
-    ```shell
-    npm ci
-    npm run build
-    npm run start
-    ```
-   - 此刻你的界面应该是这样
-   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfbszcb3j31hc0swahi.jpg)
-5. 配置邮件通知
+5. 配置流水线
+  - 在右侧弹出面板中，将任务名修改为 `签到打卡`
+  - 点击右侧面板中下侧的 `添加步骤`，选择 `构建->Node.js构建`
+  - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mbnyix7qj31hc0swjz1.jpg)
+  - 现在你的界面应该是这样的
+  - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mboqhzt7j30dw0nhdho.jpg)
+  - `版本选择方式` 修改为 `输入指定版本`
+  - `请填写 Node 版本` 修改为 `16`
+  - `构建命令` 填写为如下
+   ```shell
+   npm ci
+   npm run build
+   npm run start
+   ```
+  - 此刻你的界面应该是这样
+  - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfbszcb3j31hc0swahi.jpg)
+6. 配置邮件通知
    - 在刚才步骤的基础之上，再选择 `添加插件` -> `邮件通知`
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfdotwqsj30fc0kitak.jpg)
    - 完成之后，你的界面应该是这样的
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mftnxhxtj30e10aqdgb.jpg)
-6. 配置定时任务
+7. 配置定时任务
    - 接着配置定时触发该流水线
    - 点击顶部的 `触发设置`
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfficotyj30wu0aw75c.jpg)
    - 按照下图进行配置即可
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfg11cjnj30t50etq4d.jpg)
-7. 修改流水线名称（可选）
+8. 修改流水线名称（可选）
    - 点击顶部的 `基本信息`
    - 在 `流水线信息` 中，将 `流水线名称` 修改为 `易班签到打卡`，如下图所示
    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfi65d1oj31440kp0u6.jpg)
-8. 保存流水线，点击最右上角的 `仅保存` 按钮
-9. 配置签到账号信息
-   - 回到 `codeup` 代码管理界面，如果找不到可以点击最左上角的九个点，打开 `研发->代码管理` 就能找到仓库了
-   - 选中 `.env` 文件，再点击右侧的编辑按钮
-   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfli0ey1j31hc0swtjp.jpg)
-   - 填写你自己的签到信息之后点击保存即可（如果你的是JSON格式，那么最外层就应该用单引号。我这里是使用的JSON5，里面的内容都是单引号，所以最外层用的是双引号）
-   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfngepjoj30qf0o478y.jpg)
-   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfnwxftqj30i509nt9w.jpg)
-10. 运行流水线进行测试
+9. 保存流水线，点击最右上角的 `仅保存` 按钮
+10. 配置签到账号信息
+    - 回到 `codeup` 代码管理界面，如果找不到可以点击最左上角的九个点，打开 `研发->代码管理` 就能找到仓库了
+    - 选中 `.env` 文件，再点击右侧的编辑按钮
+    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfli0ey1j31hc0swtjp.jpg)
+    - 填写你自己的签到信息之后点击保存即可（如果你的是JSON格式，那么最外层就应该用单引号。我这里是使用的JSON5，里面的内容都是单引号，所以最外层用的是双引号）
+    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfngepjoj30qf0o478y.jpg)
+    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfnwxftqj30i509nt9w.jpg)
+11. 运行流水线进行测试
     - 现在回到流水线，测试一下能不能跑的通
     - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfp9c9roj31hc0sw44m.jpg)
     - 进入日志，查看运行情况
     - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfpuzmayj30lf0bt3zf.jpg)
     - 在弹出的窗口中，在左侧的 `构建` 选择 `Node.js 构建`，然后拉到最底下，此时应该可以看到提示信息
     - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfra84eij31hc0swamm.jpg)
-11. 至此操作已经全部完成，第二天会按照预设的时间进行打卡，运行结果会进行邮件通知
-12. 邮件通知大概长这样
+12. 至此操作已经全部完成，第二天会按照预设的时间进行打卡，运行结果会进行邮件通知
+13. 邮件通知大概长这样
     - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mg0ey3u5j30oc0hlgmv.jpg)
+
+
+### 方式二
+1. 前面的步骤也是和步骤一相同，只不过这里不用拉仓库了，每次构建都会同步github仓库。
+2. 先注册阿里云账号，然后进入云效界面
+   - 此时你的界面应该是这样
+   - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mhgvktgxj31hc0swwri.jpg)
+3. 安装上面图示进入 `流水线 Flow`
+4. 进入之后点击右上角的蓝色按钮 `新建流水线`
+5. `请选择流水线模板` 这里选择最底部的 `其他 · 空模板`，然后点击创建
+6. 打开时候会自动在右侧弹出一个 `代码源` 窗口，这里选择 `通用Git`
+7. `代码仓库` 填写 `https://github.com/james-curtis/hnie-auto-sign.git`
+8. `默认分支` 填写 `main`
+9. 点击 `服务连接` 的 `添加服务连接`
+10. 在弹出窗口中，点击 `服务授权/证书` 右侧的 `新建` 按钮
+    - 这里的 `用户名` 和 `令牌/密码` 随便输入就好了，比如这样
+    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mhxi6orij30i60azq3g.jpg)
+    - 点击 `确认`
+11. 然后 `新建服务连接` 窗口中的 `使用范围` 修改为 `私密：仅自己可见`
+    - 此时界面应该如下图所示
+    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mhzdhb4yj30h20hrab9.jpg)
+    - 点击 `确认`
+12. 此时你的界面应该是这样，![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mi084xqjj31hc0swgt7.jpg)
+13. 点击 `添加` 按钮
+14. 此时你的界面应该是这样，![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mi55fy9dj31hc0swwk5.jpg)
+15. 后面的步骤就和[方式一](#方式一)中的第5步一样了
 
 
 ## 数据格式
