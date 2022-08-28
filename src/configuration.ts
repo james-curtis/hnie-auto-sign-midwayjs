@@ -3,8 +3,8 @@ import * as koa from '@midwayjs/koa';
 import * as validate from '@midwayjs/validate';
 import * as info from '@midwayjs/info';
 import path, { join } from 'path';
-// import { DefaultErrorFilter } from './filter/default.filter';
-// import { NotFoundFilter } from './filter/notfound.filter';
+import { DefaultErrorFilter } from './filter/default.filter';
+import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
 import * as task from '@midwayjs/task';
 import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
@@ -37,7 +37,7 @@ export class ContainerLifeCycle implements ILifeCycle {
     // add middleware
     this.app.useMiddleware([ReportMiddleware]);
     // add filter
-    // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
+    this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
 
     applicationContext.registerObject('lodash', lodash);
   }
