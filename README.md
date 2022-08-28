@@ -73,6 +73,8 @@
     - 在弹出的窗口中，在左侧的 `构建` 选择 `Node.js 构建`，然后拉到最底下，此时应该可以看到提示信息
     - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mfra84eij31hc0swamm.jpg)
 11. 至此操作已经全部完成，第二天会按照预设的时间进行打卡，运行结果会进行邮件通知
+12. 邮件通知大概长这样
+    - ![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mg0ey3u5j30oc0hlgmv.jpg)
 
 
 ## 数据格式
