@@ -3,6 +3,7 @@
 **目录**：
 - [某高校疫情防控自动签到打卡](#某高校疫情防控自动签到打卡)
   - [运行平台](#运行平台)
+  - [费用](#费用)
   - [使用步骤](#使用步骤)
     - [方式一](#方式一)
     - [方式二](#方式二)
@@ -16,9 +17,20 @@
 
 可以配合 [阿里云效](https://devops.aliyun.com/) 或者 [coding](https://coding.net/)，只要是跑在国内服务器都可以
 
+## 费用
+
+> 流水线：最大并发任务数 3，运行时长 1800 分钟/月。
+
+更多信息请查阅[官网](https://www.aliyun.com/product/yunxiao)
+
+![官网](https://tva1.sinaimg.cn/large/008d89Swgy1h5mipl23h4j30xd0mcakn.jpg)
+
 ## 使用步骤
 
 推荐使用[方式二](#方式二)
+
+如果方式二的代码拉取不下来的话就只能换成方式一了，如下图所示是方式二失败的情况：
+![](https://tva1.sinaimg.cn/large/008d89Swgy1h5mip2vquqj31hc0swn76.jpg)
 
 ### 方式一
 
