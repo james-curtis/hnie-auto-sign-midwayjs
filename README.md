@@ -1,9 +1,9 @@
 # 某高校疫情防控自动签到打卡
 
-|  技术栈  |  Midway.js  |  Nest.js  |
-|  ----  | ----  |
-|  链接  |  [hnie-auto-sign-midwayjs](https://github.com/james-curtis/hnie-auto-sign-midwayjs)  |  [hnie-auto-sign-nestjs](https://github.com/james-curtis/hnie-auto-sign-nestjs)  |
-|  备注  |  仅支持日常打卡  |  支持日常打卡以及晚归打卡  |
+| 技术栈 | Midway.js | Nest.js |
+| ---- | ---- | ---- |
+| 链接 | [hnie-auto-sign-midwayjs](https://github.com/james-curtis/hnie-auto-sign-midwayjs) | [hnie-auto-sign-nestjs](https://github.com/james-curtis/hnie-auto-sign-nestjs) |
+| 备注 | 仅支持日常打卡 | 支持日常打卡以及晚归打卡 |
 
 **目录**：
 - [某高校疫情防控自动签到打卡](#某高校疫情防控自动签到打卡)
